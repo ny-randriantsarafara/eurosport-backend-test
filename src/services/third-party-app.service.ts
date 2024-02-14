@@ -78,14 +78,8 @@ export default class ThirdPartyAppService {
       throw new Error('Problem should have status CLOSED to close a ticket');
     }
     const foundTicket = this.getTicket(closeTicketDto.appName, problem.id);
-    if (closeTicketDto.appName === ThirdPartyApp.APP_ONE) {
-      foundTicket.updateNumbers(closeTicketDto.count);
-      foundTicket.closeTicket(closeTicketDto.count);
-    }
-    if (closeTicketDto.appName === ThirdPartyApp.APP_TWO) {
-      foundTicket.updateNumbers(closeTicketDto.count);
-      foundTicket.closeTicket(closeTicketDto.count);
-    }
+    foundTicket.updateNumbers(closeTicketDto.count);
+    foundTicket.closeTicket(closeTicketDto.count);
     this.updateStoredTicket(closeTicketDto.appName, problem.id, foundTicket);
     return foundTicket;
   }
