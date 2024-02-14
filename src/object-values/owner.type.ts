@@ -1,1 +1,1 @@
-export type Owner = 'csTeam';
+export type Owner = "csTeam";

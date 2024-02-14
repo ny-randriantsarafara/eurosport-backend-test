@@ -1,4 +1,4 @@
 export enum ThirdPartyApp {
-    APP_ONE = "ThirdPartyApp1",
-    APP_TWO = "ThirdPartyApp2",
+  APP_ONE = "ThirdPartyApp1",
+  APP_TWO = "ThirdPartyApp2",
 }

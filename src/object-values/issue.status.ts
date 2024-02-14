@@ -1,4 +1,4 @@
 export enum IssueStatus {
-    WAITING = 'waiting',
-    GROUPED = 'grouped',
+  WAITING = "waiting",
+  GROUPED = "grouped",
 }

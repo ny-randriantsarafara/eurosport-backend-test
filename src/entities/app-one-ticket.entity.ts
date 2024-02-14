@@ -1,6 +1,6 @@
-import { AppOneTicketStatus } from '../object-values/app-one-ticket.status';
-import { Owner } from '../object-values/owner.type';
-import ThirdPartyTicket from './third-party-ticket';
+import { AppOneTicketStatus } from "../object-values/app-one-ticket.status";
+import { Owner } from "../object-values/owner.type";
+import ThirdPartyTicket from "./third-party-ticket";
 
 export default class AppOneTicket implements ThirdPartyTicket {
   problemId: string;
@@ -11,7 +11,7 @@ export default class AppOneTicket implements ThirdPartyTicket {
   constructor({ reference, count }: { reference: string; count: number }) {
     this.problemId = reference;
     this.count = count;
-    this.owner = 'csTeam';
+    this.owner = "csTeam";
     this.myStatus = AppOneTicketStatus.RUNNING;
   }
 

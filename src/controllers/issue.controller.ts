@@ -1,6 +1,6 @@
-import { Request, Response } from 'express';
-import IssueService from '../services/issue.service';
-import ProblemService from '../services/problem.service';
+import { Request, Response } from "express";
+import IssueService from "../services/issue.service";
+import ProblemService from "../services/problem.service";
 
 export const createIssuesController = (req: Request, res: Response) => {
   const { body: issues } = req;

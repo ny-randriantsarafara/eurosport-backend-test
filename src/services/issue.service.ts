@@ -1,5 +1,5 @@
-import Issue from '../entities/issue.entity';
-import { CreateIssueDTO } from '../dtos/create-issue.dto';
+import Issue from "../entities/issue.entity";
+import { CreateIssueDTO } from "../dtos/create-issue.dto";
 
 export default class IssueService {
   private issues: Issue[];

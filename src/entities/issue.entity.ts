@@ -1,6 +1,6 @@
-import { CreateIssueDTO } from '../dtos/create-issue.dto';
-import { IssueStatusTransition } from '../object-values/issue-status-transition';
-import { IssueStatus } from '../object-values/issue.status';
+import { CreateIssueDTO } from "../dtos/create-issue.dto";
+import { IssueStatusTransition } from "../object-values/issue-status-transition";
+import { IssueStatus } from "../object-values/issue.status";
 
 export default class Issue {
   category: string;
@@ -23,15 +23,15 @@ export default class Issue {
 
   setStatus(status: IssueStatus) {
     if (!IssueStatusTransition.includes(status)) {
-      throw new Error('Invalid status');
+      throw new Error("Invalid status");
     }
     const newStatusIndex = IssueStatusTransition.indexOf(status);
     const currentStatusIndex = IssueStatusTransition.indexOf(this.status);
     if (currentStatusIndex > newStatusIndex) {
-      throw new Error('Invalid status transition');
+      throw new Error("Invalid status transition");
     }
     if (newStatusIndex - currentStatusIndex > 1) {
-      throw new Error('Invalid status transition');
+      throw new Error("Invalid status transition");
     }
     this.status = status;
   }

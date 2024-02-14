@@ -1,6 +1,6 @@
-import Issue from '../entities/issue.entity';
-import Problem from '../entities/problem.entity';
-import { ProblemStatus } from '../object-values/problem.status';
+import Issue from "../entities/issue.entity";
+import Problem from "../entities/problem.entity";
+import { ProblemStatus } from "../object-values/problem.status";
 
 export default class ProblemService {
   private static instance: ProblemService;
@@ -19,7 +19,9 @@ export default class ProblemService {
 
   createProblems(issues: Issue[]): Problem[] {
     const groupedIssues = this.groupIssues(issues);
-    const createdProblems = Object.values(groupedIssues).map((issues: Issue[]) => Problem.new(issues));
+    const createdProblems = Object.values(groupedIssues).map(
+      (issues: Issue[]) => Problem.new(issues),
+    );
     this.problems = [...createdProblems];
     return createdProblems;
   }

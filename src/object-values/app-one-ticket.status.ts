@@ -1,4 +1,4 @@
 export enum AppOneTicketStatus {
-    RUNNING = 'running',
-    RESOLVED = 'resolved',
+  RUNNING = "running",
+  RESOLVED = "resolved",
 }
