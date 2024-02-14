@@ -1,7 +1,7 @@
 import express from 'express';
 import { createIssuesController } from './controllers/issue.controller';
 import { changeProblemStatusController } from './controllers/problem.controller';
-import { createTicketController } from './controllers/ticket.controller';
+import { createTicketController, updateTicketController } from './controllers/ticket.controller';
 
 const app = express();
 
@@ -14,6 +14,8 @@ app.post('/issues', createIssuesController);
 app.post('/change-status/:status', changeProblemStatusController);
 
 app.post('/create-ticket/:thirdPartyApp/:problemId', createTicketController);
+
+app.post('/update-ticket/:thirdPartyApp/:problemId', updateTicketController);
 
 if (process.env.NODE_ENV !== 'test') {
   app.listen(port, () => {
