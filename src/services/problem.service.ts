@@ -1,5 +1,6 @@
 import Issue from '../entities/issue.entity';
 import Problem from '../entities/problem.entity';
+import { ProblemStatus } from '../object-values/problem.status';
 
 export default class ProblemService {
   private static instance: ProblemService;
@@ -21,6 +22,11 @@ export default class ProblemService {
     const createdProblems = Object.values(groupedIssues).map((issues: Issue[]) => Problem.new(issues));
     this.problems = [...createdProblems];
     return createdProblems;
+  }
+
+  updateProblemsStatus(status: ProblemStatus): Problem[] {
+    this.problems.forEach((problem) => problem.setStatus(status));
+    return this.problems;
   }
 
   private groupIssues(issues: Issue[]): Record<string, Issue[]> {
