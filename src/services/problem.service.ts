@@ -24,6 +24,14 @@ export default class ProblemService {
     return createdProblems;
   }
 
+  getProblemById(id: string): Problem {
+    const problem = this.problems.find((problem) => problem.id === id);
+    if (!problem) {
+      throw new Error(`Problem with id ${id} not found`);
+    }
+    return problem;
+  }
+
   updateProblemsStatus(status: ProblemStatus): Problem[] {
     this.problems.forEach((problem) => problem.setStatus(status));
     return this.problems;
