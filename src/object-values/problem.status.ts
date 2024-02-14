@@ -1,6 +1,6 @@
 export enum ProblemStatus {
-  PENDING = 'PENDING',
-  READY = 'READY',
-  OPEN = 'OPEN',
-  CLOSED = 'CLOSED',
+  PENDING = 'pending',
+  READY = 'ready',
+  OPEN = 'open',
+  CLOSED = 'closed',
 }

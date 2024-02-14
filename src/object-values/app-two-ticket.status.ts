@@ -1,4 +1,4 @@
 export enum AppTwoTicketStatus {
-    ON_GOING = 'ON_GOING',
-    ENDED = 'ENDED',
+    ON_GOING = 'on_going',
+    ENDED = 'ended',
 }
