@@ -53,3 +53,27 @@ export const updateTicketController = (req: Request, res: Response) => {
     res.status(400).send({ message: e?.message });
   }
 };
+
+export const closeTicketController = (req: Request, res: Response) => {
+  const {
+    params: { thirdPartyApp, problemId },
+  } = req;
+  const { body: args } = req;
+  const thirdPartyAppService = ThirdPartyAppService.getInstance();
+  if (!thirdPartyAppService.isValidThirdPartyApps(thirdPartyApp)) {
+    res.status(400).send({ message: 'Invalid third party app' });
+    return;
+  }
+  const closeTicketDto: UpdateOrCloseTicketDto = {
+    appName: thirdPartyApp,
+    count: thirdPartyApp === ThirdPartyApp.APP_ONE ? args.count : args.issuesCount,
+  };
+  try {
+    const problemService = ProblemService.getInstance();
+    const problem = problemService.getProblemById(problemId);
+    const closedTicket = thirdPartyAppService.closeTicket(closeTicketDto, problem);
+    res.status(201).send(closedTicket);
+  } catch (e: any) {
+    res.status(400).send({ message: e?.message });
+  }
+};
